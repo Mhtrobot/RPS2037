@@ -4,3 +4,8 @@
 * {
   box-sizing: border-box;
 }
+
+.my-col{
+  border-color: black;
+  border: solid;
+}
