@@ -1,11 +1,65 @@
 :root {
+  --primary: #3B2A9F;
+  --primary-100: #5141AA;
+  --bg-gradiant: #3B2A9F;
 }
 
 * {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: Poppins-bold;
+  src: url("/assets/fonts/Poppins-Bold.ttf");
+}
 .my-col{
-  border-color: black;
-  border: solid;
+  border: solid black;
+}
+body{
+  background-color: var(--bg-gradiant)!important;
+}
+
+.fonting{
+  font-family: Poppins-bold;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 67.5px;
+  color: white;
+}
+
+.title{
+  text-align: center;
+  margin: 36px auto;
+  width: 95%;
+}
+
+.score{
+  text-align: center;
+  margin:36px auto;
+  width: 95%;
+}
+
+.turn{
+  margin: 36px auto;
+  width: 95%;
+  text-align: center;
+}
+
+.pic{
+  margin: 36px;
+}
+
+.c-btn{
+  margin-top: 36px;
+  width: 252px;
+  height: 64px;
+  border: 3px solid white;
+  border-radius: 16px;
+  text-align: center;
+  background: transparent;
+  color: white;
 }
