@@ -1,8 +1,5 @@
 //variables/classes-----
-let title = document.querySelector('.title .message').textContent,//for titling the game result situation
-    score = document.querySelector('.score').textContent,//for changing the score countdown
-    turn = document.querySelector('.turn').textContent,//showing the turn and the result of computer choose
-    playerChoice = null,//player choice
+let playerChoice = null,//player choice
     button = document.querySelector('.c-btn'),//hitting the button
     playerScore = 0,
     computerScore = 0;
@@ -12,7 +9,7 @@ button.addEventListener('click', matchStart)
 //functions--------------
 function matchStart(e){
     e.preventDefault()
-    console.log(e.target)
+    /*console.log(e.target)*/
     playerChoice = document.querySelector('input[name="inlineRadioOptions"]:checked');
     if (playerChoice) {
         /*console.log(`Selected value: ${playerChoice.value}`);*/
@@ -36,7 +33,7 @@ function matchStart(e){
 }
 
 function result(playerChoice, pcChoice){
-    console.log(playerChoice, pcChoice)
+    /*console.log(playerChoice, pcChoice)*/
     let winResult = null
     if (playerChoice === pcChoice)
         winResult = 'draw'
@@ -68,9 +65,28 @@ function result(playerChoice, pcChoice){
                 break
         }
     }
-    changeUi(winResult)
+    changeUi(winResult, pcChoice)
 }
 
-function changeUi(winResult){
-    console.log(winResult)
+function changeUi(winResult, pcChoice){
+    /*console.log(winResult)*/
+    switch (winResult) {
+        case 'draw':
+            document.querySelector('.title .message').textContent  = 'DRAW' //for titling the game result situation
+            document.querySelector('.title .message').style.color = 'white'
+            break;
+        case 'player':
+            document.querySelector('.title .message').textContent  = 'You Win!'
+            document.querySelector('.title .message').style.color = 'green'
+            playerScore++;
+            break;
+        case 'pc':
+            document.querySelector('.title .message').textContent  = 'You Lost!'
+            document.querySelector('.title .message').style.color = 'red'
+            computerScore++;
+            break;
+    }
+    document.querySelector('.turn').textContent = `Computer Chose ${pcChoice}`//showing the turn and the result of computer choise
+    document.querySelector('.score').textContent  = `You ${playerScore}:${computerScore} Ai`;//for changing the score countdown
+    button.textContent = 'PLAY AGAIN'
 }
