@@ -37,4 +37,40 @@ function matchStart(e){
 
 function result(playerChoice, pcChoice){
     console.log(playerChoice, pcChoice)
+    let winResult = null
+    if (playerChoice === pcChoice)
+        winResult = 'draw'
+    if (playerChoice === 'rock'){
+        switch (pcChoice) {
+            case 'paper':
+                winResult = 'pc'
+                break
+            case 'scissors':
+                winResult = 'player'
+                break
+        }
+    }else if (playerChoice === 'paper'){
+        switch (pcChoice) {
+            case 'rock':
+                winResult = 'player'
+                break
+            case 'scissors':
+                winResult = 'pc'
+                break
+        }
+    }else{
+        switch (pcChoice) {
+            case 'paper':
+                winResult = 'player'
+                break
+            case 'rock':
+                winResult = 'pc'
+                break
+        }
+    }
+    changeUi(winResult)
+}
+
+function changeUi(winResult){
+    console.log(winResult)
 }
